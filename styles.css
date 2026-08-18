@@ -47,6 +47,30 @@ body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+.lang-btn {
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.lang-btn:hover { border-color: var(--primary); }
+.lang-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .title {
   text-align: center;
   margin: 0 0 4px;

@@ -10,78 +10,83 @@
   <div class="app">
     <!-- ЕКРАН НАЛАШТУВАНЬ -->
     <section id="setup" class="screen">
-      <h1 class="title">🧮 Математичний тренажер</h1>
-      <p class="subtitle">Обери, що хочеш тренувати</p>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uk">🇺🇦 UA</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+      </div>
+
+      <h1 class="title" data-i18n="title">🧮 Математичний тренажер</h1>
+      <p class="subtitle" data-i18n="subtitle">Обери, що хочеш тренувати</p>
 
       <div class="block">
-        <h2>Тип вправ</h2>
+        <h2 data-i18n="exType">Тип вправ</h2>
         <div class="chips" id="modeChips">
-          <button class="chip active" data-mode="add">➕ Додавання</button>
-          <button class="chip" data-mode="sub">➖ Віднімання</button>
-          <button class="chip" data-mode="mul">✖️ Множення</button>
-          <button class="chip" data-mode="div">➗ Ділення</button>
-          <button class="chip" data-mode="table">🔢 Таблиця множення</button>
-          <button class="chip" data-mode="expr">🧠 Приклади (a:b + a×c)</button>
-          <button class="chip chip-advanced" data-mode="advanced">🚀 Просунутий (все разом)</button>
+          <button class="chip active" data-mode="add" data-i18n="mAdd">➕ Додавання</button>
+          <button class="chip" data-mode="sub" data-i18n="mSub">➖ Віднімання</button>
+          <button class="chip" data-mode="mul" data-i18n="mMul">✖️ Множення</button>
+          <button class="chip" data-mode="div" data-i18n="mDiv">➗ Ділення</button>
+          <button class="chip" data-mode="table" data-i18n="mTable">🔢 Таблиця множення</button>
+          <button class="chip" data-mode="expr" data-i18n="mExpr">🧠 Приклади (a:b + a×c)</button>
+          <button class="chip chip-advanced" data-mode="advanced" data-i18n="mAdvanced">🚀 Просунутий (все разом)</button>
         </div>
-        <p class="hint">Можна обрати кілька типів одразу. «Просунутий» вмикає все й додає складні приклади.</p>
+        <p class="hint" data-i18n="modesHint">Можна обрати кілька типів одразу. «Просунутий» вмикає все й додає складні приклади.</p>
       </div>
 
       <div class="block">
-        <h2>Діапазон чисел</h2>
-        <div class="chips" id="rangeChips">
-          <button class="chip" data-range="20">до 20</button>
-          <button class="chip" data-range="100">до 100</button>
-          <button class="chip active" data-range="1000">до 1000</button>
-        </div>
-      </div>
-
-      <div class="block">
-        <h2>Таймер на приклад</h2>
-        <div class="chips" id="timerChips">
-          <button class="chip active" data-timer="0">Вимкнено</button>
-          <button class="chip" data-timer="10">10 с</button>
-          <button class="chip" data-timer="20">20 с</button>
-          <button class="chip" data-timer="30">30 с</button>
-        </div>
-      </div>
-
-      <div class="block">
-        <h2>Звук</h2>
-        <div class="chips" id="soundChips">
-          <button class="chip active" id="soundToggle" data-sound="on">🔊 Звук</button>
-          <button class="chip active" id="voiceToggle" data-voice="on">🗣️ Голос заохочення</button>
-        </div>
-      </div>
-
-      <div class="block">
-        <h2>Як відповідати</h2>
+        <h2 data-i18n="answerHow">Як відповідати</h2>
         <div class="chips" id="answerChips">
-          <button class="chip active" data-answer="input">⌨️ Вводити з клавіатури</button>
-          <button class="chip" data-answer="choice">🔢 Обирати з варіантів</button>
-          <button class="chip" data-answer="random">🎲 Випадково</button>
+          <button class="chip active" data-answer="input" data-i18n="aInput">⌨️ Вводити з клавіатури</button>
+          <button class="chip" data-answer="choice" data-i18n="aChoice">🔢 Обирати з варіантів</button>
+          <button class="chip" data-answer="random" data-i18n="aRandom">🎲 Випадково</button>
         </div>
       </div>
 
       <div class="block">
-        <h2>Кількість прикладів</h2>
+        <h2 data-i18n="countLabel">Кількість прикладів</h2>
         <div class="chips" id="countChips">
           <button class="chip" data-count="5">5</button>
           <button class="chip active" data-count="10">10</button>
           <button class="chip" data-count="20">20</button>
-          <button class="chip" data-count="0">∞ Без ліміту</button>
+          <button class="chip" data-count="0" data-i18n="cUnlimited">∞ Без ліміту</button>
           <input id="customCount" class="mini-input" type="number" min="1" max="500"
-                 inputmode="numeric" placeholder="своя ✏️" />
+                 inputmode="numeric" placeholder="своя ✏️" data-i18n-placeholder="customPh" />
         </div>
       </div>
 
-      <button id="startBtn" class="btn-primary btn-big">Почати ▶</button>
+      <div class="block">
+        <h2 data-i18n="rangeLabel">Діапазон чисел</h2>
+        <div class="chips" id="rangeChips">
+          <button class="chip" data-range="20" data-i18n="r20">до 20</button>
+          <button class="chip" data-range="100" data-i18n="r100">до 100</button>
+          <button class="chip active" data-range="1000" data-i18n="r1000">до 1000</button>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 data-i18n="timerLabel">Таймер на приклад</h2>
+        <div class="chips" id="timerChips">
+          <button class="chip active" data-timer="0" data-i18n="tOff">Вимкнено</button>
+          <button class="chip" data-timer="10" data-i18n="t10">10 с</button>
+          <button class="chip" data-timer="20" data-i18n="t20">20 с</button>
+          <button class="chip" data-timer="30" data-i18n="t30">30 с</button>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 data-i18n="soundLabel">Звук</h2>
+        <div class="chips" id="soundChips">
+          <button class="chip active" id="soundToggle">🔊 Звук</button>
+          <button class="chip active" id="voiceToggle">🗣️ Голос заохочення</button>
+        </div>
+      </div>
+
+      <button id="startBtn" class="btn-primary btn-big" data-i18n="start">Почати ▶</button>
     </section>
 
     <!-- ЕКРАН ГРИ -->
     <section id="game" class="screen hidden">
       <div class="topbar">
-        <button id="backBtn" class="btn-ghost">← Назад</button>
+        <button id="backBtn" class="btn-ghost" data-i18n="back">← Назад</button>
         <div class="stats">
           <span class="stat stat-score">⭐ <b id="score">0</b></span>
           <span class="stat stat-streak">🔥 <b id="streak">0</b></span>
@@ -102,7 +107,7 @@
         <div id="inputArea" class="answer-area">
           <input id="answerInput" class="answer-input" type="number" inputmode="numeric"
                  placeholder="?" autocomplete="off" />
-          <button id="checkBtn" class="btn-primary">Перевірити</button>
+          <button id="checkBtn" class="btn-primary" data-i18n="check">Перевірити</button>
         </div>
 
         <div id="choiceArea" class="answer-area choices hidden"></div>
@@ -116,13 +121,13 @@
       <h1 class="title" id="resultEmoji">🎉</h1>
       <h2 id="resultText">Молодець!</h2>
       <div class="result-stats">
-        <div class="result-stat"><span id="finalCorrect">0</span><small>правильно</small></div>
-        <div class="result-stat"><span id="finalTotal">0</span><small>всього</small></div>
-        <div class="result-stat"><span id="finalPercent">0%</span><small>точність</small></div>
+        <div class="result-stat"><span id="finalCorrect">0</span><small data-i18n="resCorrect">правильно</small></div>
+        <div class="result-stat"><span id="finalTotal">0</span><small data-i18n="resTotal">всього</small></div>
+        <div class="result-stat"><span id="finalPercent">0%</span><small data-i18n="resAccuracy">точність</small></div>
       </div>
       <div class="result-buttons">
-        <button id="againBtn" class="btn-primary">Ще раз 🔁</button>
-        <button id="menuBtn" class="btn-ghost">У меню 🏠</button>
+        <button id="againBtn" class="btn-primary" data-i18n="again">Ще раз 🔁</button>
+        <button id="menuBtn" class="btn-ghost" data-i18n="menu">У меню 🏠</button>
       </div>
     </section>
   </div>

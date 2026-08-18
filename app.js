@@ -9,7 +9,148 @@ const settings = {
   timer: 0,                // секунд на приклад; 0 = вимкнено
   sound: true,             // звукові ефекти
   voice: true,             // голосове заохочення
+  lang: "uk",              // мова інтерфейсу: uk | en
 };
+
+/* ================= Локалізація ================= */
+const I18N = {
+  uk: {
+    title: "🧮 Математичний тренажер",
+    subtitle: "Обери, що хочеш тренувати",
+    exType: "Тип вправ",
+    mAdd: "➕ Додавання",
+    mSub: "➖ Віднімання",
+    mMul: "✖️ Множення",
+    mDiv: "➗ Ділення",
+    mTable: "🔢 Таблиця множення",
+    mExpr: "🧠 Приклади (a:b + a×c)",
+    mAdvanced: "🚀 Просунутий (все разом)",
+    modesHint: "Можна обрати кілька типів одразу. «Просунутий» вмикає все й додає складні приклади.",
+    answerHow: "Як відповідати",
+    aInput: "⌨️ Вводити з клавіатури",
+    aChoice: "🔢 Обирати з варіантів",
+    aRandom: "🎲 Випадково",
+    countLabel: "Кількість прикладів",
+    cUnlimited: "∞ Без ліміту",
+    customPh: "своя ✏️",
+    rangeLabel: "Діапазон чисел",
+    r20: "до 20",
+    r100: "до 100",
+    r1000: "до 1000",
+    timerLabel: "Таймер на приклад",
+    tOff: "Вимкнено",
+    t10: "10 с",
+    t20: "20 с",
+    t30: "30 с",
+    soundLabel: "Звук",
+    soundOn: "🔊 Звук",
+    soundOff: "🔇 Звук",
+    voiceOn: "🗣️ Голос заохочення",
+    voiceOff: "🔇 Голос вимкнено",
+    voiceHello: "Привіт!",
+    start: "Почати ▶",
+    back: "← Назад",
+    check: "Перевірити",
+    noLimit: "№ ",
+    correctFeedback: ["Правильно! 🎉", "Супер! 👏", "Молодець! ⭐", "Так тримати! 🔥", "Точно! ✅"],
+    praises: ["Молодчинка!", "Ти супер!", "Розумничка!", "Так тримати!",
+      "Чудово виходить!", "Оце так серія!", "Ти найкращий!", "Неймовірно!"],
+    correctAnswerLabel: "Правильна відповідь: ",
+    timeUpLabel: "⏱ Час вийшов! Відповідь: ",
+    resCorrect: "правильно",
+    resTotal: "всього",
+    resAccuracy: "точність",
+    again: "Ще раз 🔁",
+    menu: "У меню 🏠",
+    tiers: {
+      champion: { emoji: "🏆", text: "Неймовірно! Ти чемпіон!", say: "Вітаю! Ти справжній чемпіон!" },
+      great: { emoji: "🎉", text: "Чудова робота!", say: "Молодчинка! Чудова робота!" },
+      good: { emoji: "💪", text: "Добре, продовжуй тренуватись!", say: "Добре! Тренуйся ще, і буде супер!" },
+      keep: { emoji: "🌱", text: "Тренуйся ще — усе вийде!", say: "Не засмучуйся, спробуй ще раз. У тебе все вийде!" },
+    },
+  },
+  en: {
+    title: "🧮 Math Trainer",
+    subtitle: "Choose what you want to practice",
+    exType: "Exercise type",
+    mAdd: "➕ Addition",
+    mSub: "➖ Subtraction",
+    mMul: "✖️ Multiplication",
+    mDiv: "➗ Division",
+    mTable: "🔢 Multiplication table",
+    mExpr: "🧠 Expressions (a:b + a×c)",
+    mAdvanced: "🚀 Advanced (all mixed)",
+    modesHint: "You can pick several types at once. “Advanced” turns everything on and adds tricky problems.",
+    answerHow: "How to answer",
+    aInput: "⌨️ Type on keyboard",
+    aChoice: "🔢 Pick from options",
+    aRandom: "🎲 Random",
+    countLabel: "Number of questions",
+    cUnlimited: "∞ No limit",
+    customPh: "custom ✏️",
+    rangeLabel: "Number range",
+    r20: "up to 20",
+    r100: "up to 100",
+    r1000: "up to 1000",
+    timerLabel: "Timer per question",
+    tOff: "Off",
+    t10: "10 s",
+    t20: "20 s",
+    t30: "30 s",
+    soundLabel: "Sound",
+    soundOn: "🔊 Sound",
+    soundOff: "🔇 Sound",
+    voiceOn: "🗣️ Voice praise",
+    voiceOff: "🔇 Voice off",
+    voiceHello: "Hello!",
+    start: "Start ▶",
+    back: "← Back",
+    check: "Check",
+    noLimit: "# ",
+    correctFeedback: ["Correct! 🎉", "Awesome! 👏", "Well done! ⭐", "Keep it up! 🔥", "Exactly! ✅"],
+    praises: ["Great job!", "You're a star!", "Brilliant!", "Keep it up!",
+      "You're doing great!", "What a streak!", "You're the best!", "Incredible!"],
+    correctAnswerLabel: "Correct answer: ",
+    timeUpLabel: "⏱ Time's up! Answer: ",
+    resCorrect: "correct",
+    resTotal: "total",
+    resAccuracy: "accuracy",
+    again: "Play again 🔁",
+    menu: "Menu 🏠",
+    tiers: {
+      champion: { emoji: "🏆", text: "Incredible! You're a champion!", say: "Congratulations! You're a real champion!" },
+      great: { emoji: "🎉", text: "Great work!", say: "Well done! Great work!" },
+      good: { emoji: "💪", text: "Good, keep practicing!", say: "Good job! Keep practicing and you'll be amazing!" },
+      keep: { emoji: "🌱", text: "Keep practicing — you'll get it!", say: "Don't worry, try again. You can do it!" },
+    },
+  },
+};
+
+const T = () => I18N[settings.lang];
+
+function applyLanguage(lang) {
+  settings.lang = lang;
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    if (dict[key] != null) node.textContent = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    const key = node.dataset.i18nPlaceholder;
+    if (dict[key] != null) node.placeholder = dict[key];
+  });
+
+  // динамічні перемикачі (залежать від стану)
+  el("soundToggle").textContent = settings.sound ? dict.soundOn : dict.soundOff;
+  el("voiceToggle").textContent = settings.voice ? dict.voiceOn : dict.voiceOff;
+
+  // активна кнопка мови
+  document.querySelectorAll("#langSwitch .lang-btn").forEach((b) => {
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+}
 
 const state = {
   current: null,           // поточний приклад {text, answer}
@@ -61,19 +202,11 @@ const soundTimeout = () => { beep(440, 0, 0.16, "triangle"); beep(260, 0.15, 0.2
 const soundTick = () => { beep(880, 0, 0.05, "square", 0.06); };
 
 /* ================= Голос (синтез мовлення) ================= */
-const PRAISES = [
-  "Молодчинка!", "Ти супер!", "Розумничка!", "Так тримати!",
-  "Чудово виходить!", "Оце так серія!", "Ти найкращий!", "Неймовірно!",
-];
-
-let ukVoice = null;
+let allVoices = [];
 
 function loadVoices() {
   if (!("speechSynthesis" in window)) return;
-  const voices = speechSynthesis.getVoices();
-  ukVoice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("uk"))
-    || voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("ru"))
-    || null;
+  allVoices = speechSynthesis.getVoices() || [];
 }
 
 if ("speechSynthesis" in window) {
@@ -81,20 +214,31 @@ if ("speechSynthesis" in window) {
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
+function pickVoice(langPrefix) {
+  // точний збіг мови, для української — запасний слов'янський голос
+  let v = allVoices.find((x) => x.lang && x.lang.toLowerCase().startsWith(langPrefix));
+  if (!v && langPrefix === "uk") {
+    v = allVoices.find((x) => x.lang && x.lang.toLowerCase().startsWith("ru"));
+  }
+  return v || null;
+}
+
 function speak(text) {
   if (!settings.voice || !("speechSynthesis" in window)) return;
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "uk-UA";
-    if (ukVoice) u.voice = ukVoice;
+    const prefix = settings.lang; // "uk" | "en"
+    u.lang = prefix === "en" ? "en-US" : "uk-UA";
+    const v = pickVoice(prefix);
+    if (v) u.voice = v;
     u.rate = 1.0;
     u.pitch = 1.15;
     speechSynthesis.speak(u);
   } catch (e) { /* ігноруємо, якщо не підтримується */ }
 }
 
-const praise = () => speak(pick(PRAISES));
+const praise = () => speak(pick(T().praises));
 
 /* ================= Генератори прикладів =================
    Кожен генератор повертає { text, answer } з цілою відповіддю
@@ -301,12 +445,19 @@ singleSelect("countChips");
 singleSelect("rangeChips");
 singleSelect("timerChips");
 
+// перемикач мови
+el("langSwitch").addEventListener("click", (e) => {
+  const btn = e.target.closest(".lang-btn");
+  if (!btn) return;
+  applyLanguage(btn.dataset.lang);
+});
+
 // перемикач звуку
 el("soundToggle").addEventListener("click", () => {
   const chip = el("soundToggle");
   settings.sound = !settings.sound;
   chip.classList.toggle("active", settings.sound);
-  chip.textContent = settings.sound ? "🔊 Звук" : "🔇 Звук";
+  chip.textContent = settings.sound ? T().soundOn : T().soundOff;
   if (settings.sound) initAudio();
 });
 
@@ -315,8 +466,8 @@ el("voiceToggle").addEventListener("click", () => {
   const chip = el("voiceToggle");
   settings.voice = !settings.voice;
   chip.classList.toggle("active", settings.voice);
-  chip.textContent = settings.voice ? "�️ Голос заохочення" : "🔇 Голос вимкнено";
-  if (settings.voice) speak("Привіт!"); // коротка проба голосу
+  chip.textContent = settings.voice ? T().voiceOn : T().voiceOff;
+  if (settings.voice) speak(T().voiceHello); // коротка проба голосу
 });
 
 // власна кількість прикладів: активуємо поле й гасимо чіпи
@@ -531,8 +682,7 @@ function onCorrect() {
   state.streak++;
   const bonus = 10 + Math.min(state.streak, 10);
   state.score += bonus;
-  const msgs = ["Правильно! 🎉", "Супер! 👏", "Молодець! ⭐", "Так тримати! 🔥", "Точно! ✅"];
-  feedbackEl.textContent = pick(msgs) + (state.streak >= 3 ? ` (+${bonus})` : "");
+  feedbackEl.textContent = pick(T().correctFeedback) + (state.streak >= 3 ? ` (+${bonus})` : "");
   feedbackEl.className = "feedback good bounce";
   // голосове заохочення за кожні 3 правильні поспіль
   if (state.streak > 0 && state.streak % 3 === 0) praise();
@@ -544,7 +694,7 @@ function onWrong() {
   soundWrong();
   state.answered = true;
   state.streak = 0;
-  feedbackEl.textContent = `Правильна відповідь: ${state.current.answer}`;
+  feedbackEl.textContent = T().correctAnswerLabel + state.current.answer;
   feedbackEl.className = "feedback bad shake";
   updateStats();
 }
@@ -561,7 +711,7 @@ function onTimeout() {
     b.disabled = true;
     if (Number(b.textContent) === state.current.answer) b.classList.add("correct");
   });
-  feedbackEl.textContent = `⏱ Час вийшов! Відповідь: ${state.current.answer}`;
+  feedbackEl.textContent = T().timeUpLabel + state.current.answer;
   feedbackEl.className = "feedback bad shake";
   updateStats();
   scheduleNext();
@@ -576,7 +726,7 @@ function updateStats() {
   el("score").textContent = state.score;
   el("streak").textContent = state.streak;
   if (settings.count === 0) {
-    el("progress").textContent = `№ ${state.index}`;
+    el("progress").textContent = T().noLimit + state.index;
     el("progressFill").style.width = "100%";
   } else {
     el("progress").textContent = `${Math.min(state.index, settings.count)} / ${settings.count}`;
@@ -594,17 +744,17 @@ function showResult() {
   el("finalTotal").textContent = answeredTotal;
   el("finalPercent").textContent = percent + "%";
 
-  let emoji = "🎉", text = "Молодець!";
-  if (percent >= 90) { emoji = "🏆"; text = "Неймовірно! Ти чемпіон!"; }
-  else if (percent >= 70) { emoji = "🎉"; text = "Чудова робота!"; }
-  else if (percent >= 50) { emoji = "💪"; text = "Добре, продовжуй тренуватись!"; }
-  else { emoji = "🌱"; text = "Тренуйся ще — усе вийде!"; }
-  el("resultEmoji").textContent = emoji;
-  el("resultText").textContent = text;
+  const tiers = T().tiers;
+  let tier;
+  if (percent >= 90) tier = tiers.champion;
+  else if (percent >= 70) tier = tiers.great;
+  else if (percent >= 50) tier = tiers.good;
+  else tier = tiers.keep;
 
-  // озвучуємо підсумок
-  if (percent >= 90) speak("Вітаю! Ти справжній чемпіон!");
-  else if (percent >= 70) speak("Молодчинка! Чудова робота!");
-  else if (percent >= 50) speak("Добре! Тренуйся ще, і буде супер!");
-  else speak("Не засмучуйся, спробуй ще раз. У тебе все вийде!");
+  el("resultEmoji").textContent = tier.emoji;
+  el("resultText").textContent = tier.text;
+  speak(tier.say);
 }
+
+/* ================= Ініціалізація ================= */
+applyLanguage(settings.lang);

@@ -10,6 +10,7 @@ Works on desktop, tablet, and phone. Just open the link in any modern browser.
 
 ## ✨ Features
 
+- **Bilingual interface** — Ukrainian (default) and English, switchable with one tap.
 - **Four core operations** — addition, subtraction, multiplication, and division, all within a configurable number range.
 - **Choose what to practice** — pick one or several operation types, or turn on **Advanced mode** to mix everything together.
 - **Multiplication table** — a dedicated mode with factors from 1 to 10.
